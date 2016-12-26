@@ -10,7 +10,7 @@ color:
   links: '#219ab3'
 
 # Footer settings
-footer: Your Website
+footer: myName['nickname']
 
 # Social networks usernames (many more available: google-plus, flickr, dribbble, pinterest, instagram, tumblr, linkedin, etc.)
 social:
