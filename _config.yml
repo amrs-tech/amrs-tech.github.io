@@ -18,6 +18,8 @@ social:
     url: https://plus.google.com/107997462684733756437
   - title: github
     url: https://github.com/amrs-tech
+  - title: kaggle
+    url: https://kaggle.com/amrstech
 
 # Build settings
 markdown: kramdown
