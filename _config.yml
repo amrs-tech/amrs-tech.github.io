@@ -14,8 +14,8 @@ footer: myName['nickname']
 
 # Social networks usernames (many more available: google-plus, flickr, dribbble, pinterest, instagram, tumblr, linkedin, etc.)
 social:
-  - title: google plus
-    url: https://plus.google.com/107997462684733756437
+  - title: linkedin
+    url: https://www.linkedin.com/in/ahamed-musthafa-109457150/
   - title: github
     url: https://github.com/amrs-tech
   - title: kaggle
