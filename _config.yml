@@ -15,11 +15,11 @@ footer: myName['nickname']
 # Social networks usernames (many more available: google-plus, flickr, dribbble, pinterest, instagram, tumblr, linkedin, etc.)
 social:
   - title: linkedin
-    url: https://www.linkedin.com/in/ahamed-musthafa-109457150/
+    url: https://www.linkedin.com/in/ahamed-musthafa-rs/
   - title: github
     url: https://github.com/amrs-tech
-  - title: kaggle
-    url: https://kaggle.com/amrstech
+  #- title: kaggle
+   # url: https://kaggle.com/amrstech
 
 # Build settings
 markdown: kramdown
