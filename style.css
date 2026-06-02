@@ -24,7 +24,8 @@
 
 html {
     min-height: 100%;
-    scroll-behavior: smooth;
+    scroll-behavior: auto;
+    overflow-x: hidden;
 }
 
 body {
@@ -85,7 +86,7 @@ img {
     width: 100%;
     height: 100%;
     pointer-events: none;
-    opacity: 0.74;
+    opacity: 0.58;
 }
 
 .skip-link {
@@ -120,7 +121,7 @@ img {
     min-height: 76px;
     margin: 0 auto;
     padding: 12px 0;
-    backdrop-filter: blur(14px);
+    background: rgba(10, 11, 8, 0.72);
 }
 
 .topbar::after {
@@ -258,10 +259,15 @@ img {
 
 .hero h1 {
     max-width: 700px;
-    font-size: 5.4rem;
+    font-size: clamp(3.6rem, 7.3vw, 5.4rem);
 }
 
-.hero h1 span {
+.hero-name-fill,
+.hero-initials {
+    display: block;
+}
+
+.hero-initials {
     display: block;
     color: transparent;
     -webkit-text-stroke: 1px var(--paper);
@@ -297,7 +303,11 @@ img {
     border: 1px solid var(--line);
     border-radius: 6px;
     cursor: pointer;
-    transition: transform 180ms ease, border-color 180ms ease, background 180ms ease, color 180ms ease;
+    transition: border-color 180ms ease, background 180ms ease, color 180ms ease;
+}
+
+.magnetic {
+    will-change: transform;
 }
 
 .action-button,
@@ -390,6 +400,7 @@ img {
         radial-gradient(circle at center, transparent 0 43%, rgba(245, 239, 227, 0.04) 44% 45%, transparent 46%);
     box-shadow: inset 0 0 0 1px rgba(245, 239, 227, 0.08);
     animation: orbitSpin 22s linear infinite;
+    will-change: transform;
 }
 
 .portrait-frame {
@@ -404,7 +415,8 @@ img {
     clip-path: polygon(0 0, calc(100% - 28px) 0, 100% 28px, 100% 100%, 28px 100%, 0 calc(100% - 28px));
     transform: translate(-50%, -50%) rotateX(var(--tilt-y, 0deg)) rotateY(var(--tilt-x, 0deg));
     transform-style: preserve-3d;
-    transition: transform 160ms ease-out;
+    transition: transform 90ms linear;
+    will-change: transform;
 }
 
 .portrait-frame img {
@@ -438,6 +450,8 @@ img {
     clip-path: polygon(0 0, calc(100% - 13px) 0, 100% 13px, 100% 100%, 0 100%);
     cursor: pointer;
     box-shadow: 0 16px 34px var(--shadow);
+    transition: border-color 180ms ease, background 180ms ease, transform 180ms ease;
+    will-change: transform;
 }
 
 .node-button span {
@@ -462,6 +476,11 @@ img {
     border-color: var(--mint);
     background: rgba(103, 242, 189, 0.1);
     outline: 0;
+}
+
+.node-button:hover,
+.node-button:focus-visible {
+    transform: translateY(-2px);
 }
 
 .node-button.is-active span {
@@ -542,13 +561,15 @@ img {
     width: 92%;
     height: 100%;
     background: linear-gradient(90deg, var(--mint), var(--amber), var(--coral));
-    transition: width 260ms ease;
+    transition: width 420ms cubic-bezier(0.2, 0.8, 0.2, 1);
 }
 
 .section-block {
     position: relative;
     padding: 92px 0;
     border-top: 1px solid rgba(245, 239, 227, 0.08);
+    scroll-margin-top: 92px;
+    contain: paint;
 }
 
 .section-block::before {
@@ -604,7 +625,8 @@ img {
     border: 1px solid var(--line);
     background: rgba(245, 239, 227, 0.055);
     clip-path: polygon(0 0, calc(100% - 18px) 0, 100% 18px, 100% 100%, 0 100%);
-    transition: transform 180ms ease, border-color 180ms ease, background 180ms ease;
+    transition: transform 220ms cubic-bezier(0.2, 0.8, 0.2, 1), border-color 180ms ease, background 180ms ease;
+    will-change: transform;
 }
 
 .signal-stack article:hover,
@@ -663,6 +685,7 @@ img {
     border: 1px solid var(--line);
     cursor: pointer;
     text-align: left;
+    transition: border-color 180ms ease, background 180ms ease;
 }
 
 .mode-button i {
@@ -694,6 +717,7 @@ img {
         linear-gradient(135deg, rgba(103, 242, 189, 0.06), transparent 32%),
         rgba(10, 12, 9, 0.72);
     box-shadow: 0 24px 70px var(--shadow);
+    contain: paint;
 }
 
 .output-header {
@@ -835,7 +859,8 @@ img {
     align-content: space-between;
     border: 1px solid var(--line);
     background: rgba(245, 239, 227, 0.055);
-    transition: transform 180ms ease, border-color 180ms ease;
+    transition: transform 220ms cubic-bezier(0.2, 0.8, 0.2, 1), border-color 180ms ease;
+    will-change: transform;
 }
 
 .social-dock a:hover,
@@ -873,6 +898,7 @@ img {
     place-items: center;
     color: var(--paper);
     border: 1px solid var(--line);
+    transition: border-color 180ms ease, background 180ms ease;
 }
 
 .site-footer a:hover,
@@ -883,15 +909,16 @@ img {
 
 .reveal {
     opacity: 0;
-    transform: translateY(18px);
-    transition: opacity 520ms ease, transform 520ms ease;
+    transform: translate3d(0, 18px, 0);
+    transition: opacity 560ms cubic-bezier(0.2, 0.8, 0.2, 1), transform 560ms cubic-bezier(0.2, 0.8, 0.2, 1);
+    will-change: opacity, transform;
 }
 
 .reveal.is-visible,
 .is-loaded .hero-copy,
 .is-loaded .orbit-lab {
     opacity: 1;
-    transform: translateY(0);
+    transform: translate3d(0, 0, 0);
 }
 
 @keyframes orbitSpin {
@@ -914,10 +941,6 @@ img {
         grid-template-columns: 1fr;
         gap: 36px;
         padding-top: 30px;
-    }
-
-    .hero h1 {
-        font-size: 4.2rem;
     }
 
     .orbit-lab {
@@ -995,7 +1018,7 @@ img {
     }
 
     .hero h1 {
-        font-size: 3.05rem;
+        font-size: clamp(2.65rem, 12vw, 3.4rem);
     }
 
     .hero-lede,
@@ -1075,7 +1098,7 @@ img {
     }
 
     .hero h1 {
-        font-size: 2.55rem;
+        font-size: clamp(2.35rem, 12.2vw, 2.95rem);
     }
 
     .hero-actions {

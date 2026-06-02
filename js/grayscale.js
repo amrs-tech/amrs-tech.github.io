@@ -2,58 +2,58 @@
     "use strict";
 
     var focusData = {
-        python: {
-            title: "Python-first engineering",
-            copy: "Readable automation, APIs, data workflows, and ML pipelines with the speed to prototype and the patience to harden.",
-            tags: ["Automation", "ML pipelines", "APIs"],
-            status: "Readable systems, quick iteration",
-            narrative: "I reach for Python when a workflow needs clarity, automation, or a bridge between data, models, and product surfaces.",
-            signal: "Clean automation",
-            use: "ML workflows",
-            energy: "92%",
-            meter: 92
+        copilot: {
+            title: "Production GenAI copilots",
+            copy: "LLM-backed assistants that turn natural language into useful clinical review workflows, reducing query-build time and improving data extraction speed.",
+            tags: ["LLM APIs", "Prompt engineering", "Clinical review"],
+            status: "Natural language to clinical workflow",
+            narrative: "I design LLM assistants that replace complex manual clinical review flows with guided natural-language inputs and reliable backend orchestration.",
+            signal: "Production copilot",
+            use: "Clinical review",
+            energy: "75% faster",
+            meter: 94
         },
-        analytics: {
-            title: "Analytics engineering",
-            copy: "Data movement, reporting logic, validation, and the useful layers between raw numbers and decisions.",
-            tags: ["Dashboards", "Pipelines", "Quality"],
-            status: "Evidence shaped for action",
-            narrative: "Analytics work should reduce doubt. I like building the pieces that make data easier to inspect, explain, and reuse.",
-            signal: "Decision loops",
-            use: "Data products",
-            energy: "86%",
-            meter: 86
+        rag: {
+            title: "RAG pipelines for domain data",
+            copy: "Retrieval-augmented systems that ground model responses in clinical, CDISC, and product-specific context instead of leaving answers to memory.",
+            tags: ["RAG", "LangChain", "CDISC"],
+            status: "Grounded answers over domain data",
+            narrative: "RAG work is where the product becomes dependable: source-aware retrieval, compact context, and model outputs that are easier to inspect.",
+            signal: "Grounded generation",
+            use: "Clinical datasets",
+            energy: "3+ years",
+            meter: 88
         },
-        genai: {
-            title: "Generative AI tools",
-            copy: "Practical AI utilities, assistant workflows, prompt systems, and human-in-the-loop experiences that stay useful after the demo.",
-            tags: ["Assistants", "Prompting", "Evaluation"],
-            status: "AI with useful boundaries",
-            narrative: "My GenAI interest is strongest where models become dependable tools: focused workflows, clear feedback, and measurable outcomes.",
-            signal: "Applied AI",
-            use: "Tooling",
-            energy: "89%",
-            meter: 89
+        finetune: {
+            title: "Fine-tuned open-source LLMs",
+            copy: "LoRA-based fine-tuning on synthesized datasets to classify logically discrepant features with more than 80% accuracy.",
+            tags: ["Hugging Face", "LoRA", "Evaluation"],
+            status: "Specialized models with measurable behavior",
+            narrative: "I use fine-tuning when prompting is not enough and the model needs to learn a narrower decision pattern with clearer evaluation.",
+            signal: "Specialized LLMs",
+            use: "Classification",
+            energy: "80%+ accuracy",
+            meter: 91
         },
-        web: {
-            title: "Web development",
-            copy: "Interface systems, responsive layouts, front-end behavior, and web surfaces that make technical work easier to reach.",
-            tags: ["UI systems", "Responsive", "UX"],
-            status: "Interfaces that feel direct",
-            narrative: "Web engineering is the place where users meet the system. I care about speed, clarity, and interactions that earn their space.",
-            signal: "Product surface",
-            use: "Portfolio and apps",
-            energy: "84%",
-            meter: 84
+        clinical: {
+            title: "Clinical AI platform integration",
+            copy: "Model service interfaces, configurable rule engines, and backend systems that let non-ML teams consume AI outputs directly.",
+            tags: ["Python", "Django", "AWS"],
+            status: "AI services inside production platforms",
+            narrative: "The strongest GenAI work still needs careful backend engineering: service contracts, observability, domain constraints, and clean integration paths.",
+            signal: "Backend integration",
+            use: "Life sciences",
+            energy: "50% less effort",
+            meter: 87
         }
     };
 
     var traceLines = [
-        "boot: portfolio surface online",
-        "scan: preserving current links and contact routes",
-        "focus: Python, analytics, GenAI, web",
-        "status: ready for new case studies",
-        "loop: interaction layer listening"
+        "boot: genai portfolio online",
+        "context: clinical and life-sciences LLM systems",
+        "focus: copilots, RAG, fine-tuning, clinical AI",
+        "impact: 75% faster query-builds",
+        "status: production AI experience loaded"
     ];
 
     var root = document.documentElement;
@@ -65,7 +65,7 @@
     }
 
     function setFocus(key) {
-        var item = focusData[key] || focusData.python;
+        var item = focusData[key] || focusData.copilot;
         var focusTitle = document.getElementById("focusTitle");
         var focusCopy = document.getElementById("focusCopy");
         var focusTags = document.getElementById("focusTags");
@@ -119,6 +119,43 @@
         var topbar = document.querySelector("[data-topbar]");
         var toggle = document.querySelector(".nav-toggle");
         var navLinks = selectAll(".nav-link");
+        var anchorLinks = selectAll('a[href^="#"]');
+
+        function easeInOutCubic(t) {
+            return t < 0.5 ? 4 * t * t * t : 1 - Math.pow(-2 * t + 2, 3) / 2;
+        }
+
+        function smoothScrollTo(target) {
+            if (!target) {
+                return;
+            }
+
+            var headerOffset = topbar ? topbar.getBoundingClientRect().height + 12 : 0;
+            var startY = window.scrollY || window.pageYOffset;
+            var targetY = Math.max(0, target.getBoundingClientRect().top + startY - headerOffset);
+            var distance = targetY - startY;
+            var duration = reduceMotion ? 0 : Math.min(920, Math.max(420, Math.abs(distance) * 0.48));
+            var startTime = null;
+
+            if (duration === 0) {
+                window.scrollTo(0, targetY);
+                return;
+            }
+
+            function step(timestamp) {
+                if (startTime === null) {
+                    startTime = timestamp;
+                }
+                var elapsed = timestamp - startTime;
+                var progress = Math.min(1, elapsed / duration);
+                window.scrollTo(0, startY + distance * easeInOutCubic(progress));
+                if (progress < 1) {
+                    window.requestAnimationFrame(step);
+                }
+            }
+
+            window.requestAnimationFrame(step);
+        }
 
         if (toggle && topbar) {
             toggle.addEventListener("click", function () {
@@ -135,6 +172,24 @@
                 if (toggle) {
                     toggle.setAttribute("aria-expanded", "false");
                 }
+            });
+        });
+
+        anchorLinks.forEach(function (link) {
+            link.addEventListener("click", function (event) {
+                var hash = link.getAttribute("href");
+                if (!hash || hash === "#") {
+                    return;
+                }
+
+                var target = document.querySelector(hash);
+                if (!target) {
+                    return;
+                }
+
+                event.preventDefault();
+                smoothScrollTo(target);
+                window.history.pushState(null, "", hash);
             });
         });
 
@@ -193,15 +248,25 @@
         }
 
         var tiltTarget = document.querySelector("[data-tilt]");
-        document.addEventListener("pointermove", function (event) {
-            var x = event.clientX / window.innerWidth - 0.5;
-            var y = event.clientY / window.innerHeight - 0.5;
-            root.style.setProperty("--cursor-x", (x * 18).toFixed(2) + "px");
-            root.style.setProperty("--cursor-y", (y * 18).toFixed(2) + "px");
+        var pointerState = { x: 0, y: 0, active: false };
+        var pointerTicking = false;
 
-            if (tiltTarget) {
-                tiltTarget.style.setProperty("--tilt-x", (x * 7).toFixed(2) + "deg");
-                tiltTarget.style.setProperty("--tilt-y", (y * -7).toFixed(2) + "deg");
+        function updatePointerEffects() {
+            pointerTicking = false;
+            if (tiltTarget && pointerState.active) {
+                tiltTarget.style.setProperty("--tilt-x", (pointerState.x * 6).toFixed(2) + "deg");
+                tiltTarget.style.setProperty("--tilt-y", (pointerState.y * -6).toFixed(2) + "deg");
+            }
+        }
+
+        document.addEventListener("pointermove", function (event) {
+            pointerState.x = event.clientX / window.innerWidth - 0.5;
+            pointerState.y = event.clientY / window.innerHeight - 0.5;
+            pointerState.active = true;
+
+            if (!pointerTicking) {
+                pointerTicking = true;
+                window.requestAnimationFrame(updatePointerEffects);
             }
         });
 
@@ -261,7 +326,7 @@
                 setFocus(button.getAttribute("data-focus"));
             });
         });
-        setFocus("python");
+        setFocus("copilot");
     }
 
     function initSignalCanvas() {
@@ -279,15 +344,16 @@
 
         function resize() {
             var dpr = Math.min(window.devicePixelRatio || 1, 2);
-            width = window.innerWidth;
-            height = window.innerHeight;
+            var viewport = window.visualViewport;
+            width = Math.ceil((viewport && viewport.width) || document.documentElement.clientWidth || window.innerWidth);
+            height = Math.ceil((viewport && viewport.height) || window.innerHeight);
             canvas.width = Math.floor(width * dpr);
             canvas.height = Math.floor(height * dpr);
             canvas.style.width = width + "px";
             canvas.style.height = height + "px";
             ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
 
-            var count = Math.max(34, Math.min(88, Math.floor((width * height) / 21000)));
+            var count = Math.max(24, Math.min(54, Math.floor((width * height) / 42000)));
             nodes = [];
             for (var i = 0; i < count; i += 1) {
                 nodes.push({
@@ -311,7 +377,7 @@
             ctx.stroke();
         }
 
-        function animate() {
+        function animate(timestamp) {
             ctx.clearRect(0, 0, width, height);
 
             nodes.forEach(function (node, index) {
@@ -355,10 +421,15 @@
                 ctx.fill();
             });
 
-            window.requestAnimationFrame(animate);
+            if (!reduceMotion) {
+                window.requestAnimationFrame(animate);
+            }
         }
 
         window.addEventListener("resize", resize);
+        if (window.visualViewport) {
+            window.visualViewport.addEventListener("resize", resize);
+        }
         window.addEventListener("pointermove", function (event) {
             pointer.x = event.clientX;
             pointer.y = event.clientY;
@@ -369,7 +440,7 @@
         });
 
         resize();
-        animate();
+        window.requestAnimationFrame(animate);
     }
 
     document.addEventListener("DOMContentLoaded", function () {
