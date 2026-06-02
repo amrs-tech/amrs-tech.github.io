@@ -859,9 +859,20 @@ img {
     outline: 0;
 }
 
-.social-dock i {
+.social-dock i,
+.medium-mark {
     color: var(--amber);
     font-size: 1.6rem;
+}
+
+.medium-mark {
+    display: grid;
+    width: 1.6rem;
+    height: 1.6rem;
+    place-items: center;
+    font-family: Georgia, "Times New Roman", serif;
+    font-weight: 800;
+    line-height: 1;
 }
 
 .social-dock span {
