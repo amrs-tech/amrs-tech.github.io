@@ -14,8 +14,6 @@
     --panel: rgba(13, 18, 14, 0.82);
     --panel-strong: rgba(20, 25, 19, 0.94);
     --max-width: 1180px;
-    --cursor-x: 0px;
-    --cursor-y: 0px;
 }
 
 * {
@@ -24,7 +22,8 @@
 
 html {
     min-height: 100%;
-    scroll-behavior: auto;
+    scroll-behavior: smooth;
+    scroll-padding-top: 92px;
     overflow-x: hidden;
 }
 
@@ -306,10 +305,6 @@ img {
     transition: border-color 180ms ease, background 180ms ease, color 180ms ease;
 }
 
-.magnetic {
-    will-change: transform;
-}
-
 .action-button,
 .project-card a,
 .project-card button,
@@ -400,7 +395,6 @@ img {
         radial-gradient(circle at center, transparent 0 43%, rgba(245, 239, 227, 0.04) 44% 45%, transparent 46%);
     box-shadow: inset 0 0 0 1px rgba(245, 239, 227, 0.08);
     animation: orbitSpin 22s linear infinite;
-    will-change: transform;
 }
 
 .portrait-frame {
@@ -413,10 +407,8 @@ img {
     background: var(--panel-strong);
     box-shadow: 18px 24px 0 rgba(255, 107, 74, 0.18), 0 22px 60px var(--shadow);
     clip-path: polygon(0 0, calc(100% - 28px) 0, 100% 28px, 100% 100%, 28px 100%, 0 calc(100% - 28px));
-    transform: translate(-50%, -50%) rotateX(var(--tilt-y, 0deg)) rotateY(var(--tilt-x, 0deg));
+    transform: translate(-50%, -50%);
     transform-style: preserve-3d;
-    transition: transform 90ms linear;
-    will-change: transform;
 }
 
 .portrait-frame img {
@@ -451,7 +443,6 @@ img {
     cursor: pointer;
     box-shadow: 0 16px 34px var(--shadow);
     transition: border-color 180ms ease, background 180ms ease, transform 180ms ease;
-    will-change: transform;
 }
 
 .node-button span {
@@ -626,7 +617,6 @@ img {
     background: rgba(245, 239, 227, 0.055);
     clip-path: polygon(0 0, calc(100% - 18px) 0, 100% 18px, 100% 100%, 0 100%);
     transition: transform 220ms cubic-bezier(0.2, 0.8, 0.2, 1), border-color 180ms ease, background 180ms ease;
-    will-change: transform;
 }
 
 .signal-stack article:hover,
@@ -860,7 +850,6 @@ img {
     border: 1px solid var(--line);
     background: rgba(245, 239, 227, 0.055);
     transition: transform 220ms cubic-bezier(0.2, 0.8, 0.2, 1), border-color 180ms ease;
-    will-change: transform;
 }
 
 .social-dock a:hover,
@@ -911,7 +900,6 @@ img {
     opacity: 0;
     transform: translate3d(0, 18px, 0);
     transition: opacity 560ms cubic-bezier(0.2, 0.8, 0.2, 1), transform 560ms cubic-bezier(0.2, 0.8, 0.2, 1);
-    will-change: opacity, transform;
 }
 
 .reveal.is-visible,
