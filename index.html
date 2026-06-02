@@ -1,3 +1,320 @@
----
-layout: default
----
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>AMRS | Ahamed Musthafa R S</title>
+    <meta name="description" content="Portfolio of Ahamed Musthafa R S, ML Engineer working across web development, analytics, engineering, and Generative AI tools.">
+    <link rel="canonical" href="https://amrs-tech.github.io/">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="css/font-awesome/css/font-awesome.min.css">
+</head>
+<body>
+    <canvas id="signalCanvas" class="signal-canvas" aria-hidden="true"></canvas>
+    <a class="skip-link" href="#main">Skip to content</a>
+
+    <div class="site-shell">
+        <header class="topbar" data-topbar>
+            <a class="brand-lockup" href="#home" aria-label="AMRS home">
+                <span class="brand-mark">A</span>
+                <span>
+                    <strong>AMRS</strong>
+                    <small>portfolio</small>
+                </span>
+            </a>
+
+            <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="primaryNav">
+                <i class="fa fa-bars" aria-hidden="true"></i>
+                <span>Menu</span>
+            </button>
+
+            <nav id="primaryNav" class="primary-nav" aria-label="Primary navigation">
+                <a class="nav-link is-active" href="#home" data-section="home">
+                    <i class="fa fa-terminal" aria-hidden="true"></i>
+                    <span>Home</span>
+                </a>
+                <a class="nav-link" href="#about" data-section="about">
+                    <i class="fa fa-user" aria-hidden="true"></i>
+                    <span>About</span>
+                </a>
+                <a class="nav-link" href="#studio" data-section="studio">
+                    <i class="fa fa-sliders" aria-hidden="true"></i>
+                    <span>Studio</span>
+                </a>
+                <a class="nav-link" href="#projects" data-section="projects">
+                    <i class="fa fa-code-fork" aria-hidden="true"></i>
+                    <span>Projects</span>
+                </a>
+                <a class="nav-link" href="#contact" data-section="contact">
+                    <i class="fa fa-paper-plane" aria-hidden="true"></i>
+                    <span>Contact</span>
+                </a>
+            </nav>
+        </header>
+
+        <main id="main">
+            <section id="home" class="hero section-watch" aria-labelledby="heroTitle">
+                <div class="hero-copy reveal">
+                    <p class="eyebrow">ML Engineer / Web / Analytics / GenAI</p>
+                    <h1 id="heroTitle">
+                        Ahamed Musthafa
+                        <span>R S</span>
+                    </h1>
+                    <p class="hero-lede">
+                        I build practical systems where Python, machine learning, analytics, and web engineering meet. The page is now a live surface, ready for deeper projects, case studies, and writing when you add them.
+                    </p>
+
+                    <div class="hero-actions" aria-label="Portfolio actions">
+                        <a class="action-button action-button-primary magnetic" href="https://drive.google.com/file/d/1SbFsA1Vn1MHNE4mpOvzkRFLNJUqKURqW/view?usp=sharing" target="_blank" rel="noreferrer">
+                            <i class="fa fa-file-text-o" aria-hidden="true"></i>
+                            <span>Resume</span>
+                        </a>
+                        <a class="action-button magnetic" href="mailto:amrs.tech@gmail.com">
+                            <i class="fa fa-envelope-o" aria-hidden="true"></i>
+                            <span>Email</span>
+                        </a>
+                        <a class="action-icon magnetic" href="https://github.com/amrs-tech" target="_blank" rel="noreferrer" aria-label="GitHub">
+                            <i class="fa fa-github" aria-hidden="true"></i>
+                        </a>
+                        <a class="action-icon magnetic" href="https://www.linkedin.com/in/ahamed-musthafa-rs/" target="_blank" rel="noreferrer" aria-label="LinkedIn">
+                            <i class="fa fa-linkedin" aria-hidden="true"></i>
+                        </a>
+                    </div>
+
+                    <dl class="metric-strip" aria-label="Profile summary">
+                        <div>
+                            <dt>5+</dt>
+                            <dd>Years</dd>
+                        </div>
+                        <div>
+                            <dt>ML</dt>
+                            <dd>Engineer</dd>
+                        </div>
+                        <div>
+                            <dt>Saama</dt>
+                            <dd>Technologies</dd>
+                        </div>
+                        <div>
+                            <dt>Python</dt>
+                            <dd>First</dd>
+                        </div>
+                    </dl>
+                </div>
+
+                <div class="orbit-lab reveal" aria-label="Interactive focus selector">
+                    <div class="orbit-ring" aria-hidden="true"></div>
+                    <figure class="portrait-frame" data-tilt>
+                        <img src="img/ahamedmusthafa.jpeg" alt="Ahamed Musthafa R S">
+                        <figcaption>console.log('Welcome to mySite')</figcaption>
+                    </figure>
+
+                    <button class="node-button node-python is-active" type="button" data-focus="python">
+                        <span>01</span>
+                        <strong>Python</strong>
+                    </button>
+                    <button class="node-button node-analytics" type="button" data-focus="analytics">
+                        <span>02</span>
+                        <strong>Analytics</strong>
+                    </button>
+                    <button class="node-button node-genai" type="button" data-focus="genai">
+                        <span>03</span>
+                        <strong>GenAI</strong>
+                    </button>
+                    <button class="node-button node-web" type="button" data-focus="web">
+                        <span>04</span>
+                        <strong>Web</strong>
+                    </button>
+
+                    <aside class="focus-panel" aria-live="polite">
+                        <p class="panel-kicker">Active frequency</p>
+                        <h2 id="focusTitle">Python-first engineering</h2>
+                        <p id="focusCopy">Readable automation, APIs, data workflows, and ML pipelines with the speed to prototype and the patience to harden.</p>
+                        <ul id="focusTags" class="focus-tags">
+                            <li>Automation</li>
+                            <li>ML pipelines</li>
+                            <li>APIs</li>
+                        </ul>
+                        <div class="confidence-meter" aria-label="Current focus strength">
+                            <span id="focusMeter"></span>
+                        </div>
+                    </aside>
+                </div>
+            </section>
+
+            <section id="about" class="section-block section-watch" aria-labelledby="aboutTitle">
+                <div class="section-inner about-grid">
+                    <div class="section-heading reveal">
+                        <p class="eyebrow">About</p>
+                        <h2 id="aboutTitle">Engineer with a builder's bias.</h2>
+                    </div>
+                    <div class="about-copy reveal">
+                        <p>
+                            My name is Ahamed Musthafa R S. I have 5+ years of professional experience across web development, analytics and engineering, and Generative AI tools. I am currently working as an ML Engineer at Saama Technologies, Coimbatore.
+                        </p>
+                        <p>
+                            Python is still my favorite language because it stays simple when the idea is young and remains flexible when the system grows.
+                        </p>
+                    </div>
+                    <div class="signal-stack reveal" aria-label="Experience themes">
+                        <article>
+                            <span>01</span>
+                            <h3>Web Development</h3>
+                            <p>Interfaces, application flows, and production-ready front-end foundations.</p>
+                        </article>
+                        <article>
+                            <span>02</span>
+                            <h3>Analytics Engineering</h3>
+                            <p>Data movement, reporting logic, and decision surfaces that teams can trust.</p>
+                        </article>
+                        <article>
+                            <span>03</span>
+                            <h3>Machine Learning</h3>
+                            <p>Model-facing workflows, ML tooling, and practical engineering around AI systems.</p>
+                        </article>
+                    </div>
+                </div>
+            </section>
+
+            <section id="studio" class="section-block studio-block section-watch" aria-labelledby="studioTitle">
+                <div class="section-inner">
+                    <div class="section-heading reveal">
+                        <p class="eyebrow">Studio</p>
+                        <h2 id="studioTitle">A working surface, not a static resume.</h2>
+                    </div>
+
+                    <div class="studio-grid reveal">
+                        <div class="mode-switcher" role="tablist" aria-label="Focus modes">
+                            <button class="mode-button is-active" type="button" role="tab" aria-selected="true" data-focus="python">
+                                <i class="fa fa-code" aria-hidden="true"></i>
+                                <span>Python</span>
+                            </button>
+                            <button class="mode-button" type="button" role="tab" aria-selected="false" data-focus="analytics">
+                                <i class="fa fa-line-chart" aria-hidden="true"></i>
+                                <span>Analytics</span>
+                            </button>
+                            <button class="mode-button" type="button" role="tab" aria-selected="false" data-focus="genai">
+                                <i class="fa fa-bolt" aria-hidden="true"></i>
+                                <span>GenAI</span>
+                            </button>
+                            <button class="mode-button" type="button" role="tab" aria-selected="false" data-focus="web">
+                                <i class="fa fa-window-maximize" aria-hidden="true"></i>
+                                <span>Web</span>
+                            </button>
+                        </div>
+
+                        <div class="lab-output" role="tabpanel">
+                            <div class="output-header">
+                                <span id="modeStatus">Readable systems, quick iteration</span>
+                                <span class="output-pulse" aria-hidden="true"></span>
+                            </div>
+                            <p id="modeNarrative">
+                                I reach for Python when a workflow needs clarity, automation, or a bridge between data, models, and product surfaces.
+                            </p>
+                            <div class="output-grid" aria-label="Selected focus attributes">
+                                <div>
+                                    <span>Signal</span>
+                                    <strong id="modeSignal">Clean automation</strong>
+                                </div>
+                                <div>
+                                    <span>Use</span>
+                                    <strong id="modeUse">ML workflows</strong>
+                                </div>
+                                <div>
+                                    <span>Energy</span>
+                                    <strong id="modeEnergy">92%</strong>
+                                </div>
+                            </div>
+                            <p id="traceLine" class="trace-line">boot: portfolio surface online</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section id="projects" class="section-block section-watch" aria-labelledby="projectsTitle">
+                <span id="download" class="anchor-alias" aria-hidden="true"></span>
+                <div class="section-inner">
+                    <div class="section-heading reveal">
+                        <p class="eyebrow">Projects</p>
+                        <h2 id="projectsTitle">Built to expand as your work grows.</h2>
+                    </div>
+
+                    <div class="project-grid reveal">
+                        <article class="project-card">
+                            <span class="project-index">Live</span>
+                            <h3>GitHub Repository Index</h3>
+                            <p>Your public project list remains one click away while this page gets ready for selected case studies.</p>
+                            <a href="https://github.com/amrs-tech?tab=repositories" target="_blank" rel="noreferrer" aria-label="Open GitHub repositories">
+                                <i class="fa fa-github" aria-hidden="true"></i>
+                                <span>Repositories</span>
+                            </a>
+                        </article>
+                        <article class="project-card project-card-empty">
+                            <span class="project-index">Next</span>
+                            <h3>ML Engineering Case Study</h3>
+                            <p>A future slot for a deeper build story, model workflow, architecture notes, or measurable outcome.</p>
+                            <button type="button" data-focus="genai" aria-label="Preview Generative AI focus">
+                                <i class="fa fa-bolt" aria-hidden="true"></i>
+                                <span>Preview Focus</span>
+                            </button>
+                        </article>
+                        <article class="project-card project-card-empty">
+                            <span class="project-index">Next</span>
+                            <h3>Analytics Build Note</h3>
+                            <p>A future slot for dashboards, pipelines, data quality patterns, or decision tooling.</p>
+                            <button type="button" data-focus="analytics" aria-label="Preview analytics focus">
+                                <i class="fa fa-line-chart" aria-hidden="true"></i>
+                                <span>Preview Focus</span>
+                            </button>
+                        </article>
+                    </div>
+                </div>
+            </section>
+
+            <section id="contact" class="section-block contact-block section-watch" aria-labelledby="contactTitle">
+                <div class="section-inner contact-grid">
+                    <div class="section-heading reveal">
+                        <p class="eyebrow">Contact</p>
+                        <h2 id="contactTitle">A simple hello could lead to a million things.</h2>
+                    </div>
+
+                    <div class="contact-panel reveal">
+                        <a class="mail-link" href="mailto:amrs.tech@gmail.com">
+                            <i class="fa fa-envelope-open-o" aria-hidden="true"></i>
+                            <span>amrs.tech@gmail.com</span>
+                        </a>
+                        <button class="copy-button" type="button" data-copy-email="amrs.tech@gmail.com">
+                            <i class="fa fa-copy" aria-hidden="true"></i>
+                            <span id="copyLabel">Copy email</span>
+                        </button>
+                    </div>
+
+                    <div class="social-dock reveal" aria-label="Social links">
+                        <a href="https://www.linkedin.com/in/ahamed-musthafa-rs/" target="_blank" rel="noreferrer" aria-label="LinkedIn">
+                            <i class="fa fa-linkedin" aria-hidden="true"></i>
+                            <span>LinkedIn</span>
+                        </a>
+                        <a href="https://github.com/amrs-tech" target="_blank" rel="noreferrer" aria-label="GitHub">
+                            <i class="fa fa-github" aria-hidden="true"></i>
+                            <span>GitHub</span>
+                        </a>
+                        <a href="https://medium.com/@amrstech" target="_blank" rel="noreferrer" aria-label="Medium">
+                            <i class="fa fa-medium" aria-hidden="true"></i>
+                            <span>Medium</span>
+                        </a>
+                    </div>
+                </div>
+            </section>
+        </main>
+
+        <footer class="site-footer">
+            <p>Developed by AMRS-TECH.</p>
+            <a href="#home" aria-label="Back to top">
+                <i class="fa fa-angle-up" aria-hidden="true"></i>
+            </a>
+        </footer>
+    </div>
+
+    <script src="js/grayscale.js"></script>
+</body>
+</html>
