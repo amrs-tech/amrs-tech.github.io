@@ -540,21 +540,6 @@ img {
     font-size: 0.76rem;
 }
 
-.confidence-meter {
-    height: 8px;
-    margin-top: 18px;
-    overflow: hidden;
-    background: rgba(245, 239, 227, 0.12);
-}
-
-.confidence-meter span {
-    display: block;
-    width: 92%;
-    height: 100%;
-    background: linear-gradient(90deg, var(--mint), var(--amber), var(--coral));
-    transition: width 420ms cubic-bezier(0.2, 0.8, 0.2, 1);
-}
-
 .section-block {
     position: relative;
     padding: 92px 0;
@@ -643,6 +628,94 @@ img {
 .project-card p {
     margin: 0;
     color: var(--muted);
+}
+
+.career-history {
+    grid-column: 1 / -1;
+    min-width: 0;
+}
+
+.career-history h3 {
+    margin: 0 0 20px;
+    font-size: 1.35rem;
+}
+
+.career-list {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.career-list li {
+    display: grid;
+    grid-template-columns: 210px minmax(0, 1fr);
+    gap: 32px;
+    padding: 24px 0;
+    border-top: 1px solid var(--line);
+}
+
+.career-period {
+    color: var(--amber);
+    font-family: Consolas, "Liberation Mono", monospace;
+    font-size: 0.9rem;
+}
+
+.career-list h4 {
+    margin: 0;
+    font-size: 1.16rem;
+}
+
+.career-list h4 span {
+    display: block;
+    margin-top: 4px;
+    color: var(--mint);
+    font-size: 0.95rem;
+    font-weight: 400;
+}
+
+.career-list p {
+    margin: 12px 0 0;
+    color: var(--muted);
+}
+
+.education-line {
+    margin-top: 20px;
+    padding-top: 24px;
+    border-top: 1px solid var(--line);
+}
+
+.education-line p {
+    margin: 0;
+    color: var(--muted);
+}
+
+.education-line p span {
+    display: block;
+    margin-top: 6px;
+    color: var(--amber);
+}
+
+.stack-list {
+    margin: 36px 0 0;
+}
+
+.stack-list div {
+    display: grid;
+    grid-template-columns: 180px minmax(0, 1fr);
+    gap: 24px;
+    padding: 18px 0;
+    border-top: 1px solid var(--line);
+}
+
+.stack-list dt {
+    color: var(--mint);
+    font-weight: 600;
+}
+
+.stack-list dd {
+    margin: 0;
+    color: var(--muted);
+    overflow-wrap: anywhere;
 }
 
 .studio-block::before {
@@ -789,6 +862,10 @@ img {
 .project-card button {
     align-self: flex-start;
     margin-top: auto;
+}
+
+.project-card p {
+    margin-bottom: 22px;
 }
 
 .project-card button {
@@ -972,6 +1049,12 @@ img {
 }
 
 @media (max-width: 760px) {
+    .career-list li,
+    .stack-list div {
+        grid-template-columns: minmax(0, 1fr);
+        gap: 12px;
+    }
+
     .topbar {
         width: min(100% - 24px, var(--max-width));
         min-height: 66px;

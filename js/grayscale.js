@@ -2,6 +2,16 @@
     "use strict";
 
     var focusData = {
+        agents: {
+            title: "Retrieval-augmented multi-agent systems",
+            copy: "Enterprise support workflows with specialized agents for retrieval, reasoning, response validation, and escalation, grounded in enterprise knowledge.",
+            tags: ["LangGraph", "pgvector", "Agentic AI"],
+            status: "Specialized agents, grounded enterprise responses",
+            narrative: "At Tredence, I developed a retrieval-augmented multi-agent support workflow using LangGraph and PostgreSQL/pgvector, with specialized agents for retrieval, reasoning, response validation, and escalation.",
+            signal: "Multi-agent orchestration",
+            use: "Enterprise support",
+            energy: "Tredence workflow"
+        },
         copilot: {
             title: "Production GenAI copilots",
             copy: "LLM-backed assistants that turn natural language into useful clinical review workflows, reducing query-build time and improving data extraction speed.",
@@ -10,50 +20,36 @@
             narrative: "I design LLM assistants that replace complex manual clinical review flows with guided natural-language inputs and reliable backend orchestration.",
             signal: "Production copilot",
             use: "Clinical review",
-            energy: "75% faster",
-            meter: 94
+            energy: "75% faster query-builds"
         },
         rag: {
-            title: "RAG pipelines for domain data",
-            copy: "Retrieval-augmented systems that ground model responses in clinical, CDISC, and product-specific context instead of leaving answers to memory.",
-            tags: ["RAG", "LangChain", "CDISC"],
-            status: "Grounded answers over domain data",
-            narrative: "RAG work is where the product becomes dependable: source-aware retrieval, compact context, and model outputs that are easier to inspect.",
+            title: "RAG over enterprise knowledge",
+            copy: "Retrieval-augmented workflows that ground generated support responses in enterprise knowledge, backed by PostgreSQL/pgvector.",
+            tags: ["RAG", "LangChain", "PostgreSQL/pgvector"],
+            status: "Enterprise knowledge in the response loop",
+            narrative: "My retrieval work connects enterprise knowledge to multi-agent support workflows. At Saama, I also built grounded-source validation, compliance checks, and workflow controls for reliable LLM execution.",
             signal: "Grounded generation",
-            use: "Clinical datasets",
-            energy: "3+ years",
-            meter: 88
+            use: "Enterprise support",
+            energy: "Grounded-source validation"
         },
         finetune: {
             title: "Fine-tuned open-source LLMs",
-            copy: "LoRA-based fine-tuning on synthesized datasets to classify logically discrepant features with more than 80% accuracy.",
-            tags: ["Hugging Face", "LoRA", "Evaluation"],
+            copy: "LoRA fine-tuning on synthetically generated domain datasets, achieving over 80% classification accuracy for logical discrepancies in clinical data features.",
+            tags: ["Transformers", "LoRA / QLoRA", "LLM Evaluation"],
             status: "Specialized models with measurable behavior",
-            narrative: "I use fine-tuning when prompting is not enough and the model needs to learn a narrower decision pattern with clearer evaluation.",
+            narrative: "At Saama, I fine-tuned open-source LLMs with LoRA on synthetic domain datasets to identify logical discrepancies in clinical data features. My stack also includes QLoRA and LLM evaluation.",
             signal: "Specialized LLMs",
             use: "Classification",
-            energy: "80%+ accuracy",
-            meter: 91
-        },
-        clinical: {
-            title: "Clinical AI platform integration",
-            copy: "Model service interfaces, configurable rule engines, and backend systems that let non-ML teams consume AI outputs directly.",
-            tags: ["Python", "Django", "AWS"],
-            status: "AI services inside production platforms",
-            narrative: "The strongest GenAI work still needs careful backend engineering: service contracts, observability, domain constraints, and clean integration paths.",
-            signal: "Backend integration",
-            use: "Life sciences",
-            energy: "50% less effort",
-            meter: 87
+            energy: "Over 80% accuracy"
         }
     };
 
     var traceLines = [
         "boot: genai portfolio online",
-        "context: clinical and life-sciences LLM systems",
-        "focus: copilots, RAG, fine-tuning, clinical AI",
+        "context: enterprise support and life sciences",
+        "focus: agents, RAG, fine-tuning, copilots",
         "impact: 75% faster query-builds",
-        "status: production AI experience loaded"
+        "stack: LangGraph, pgvector, FastAPI, AWS"
     ];
 
     var body = document.body;
@@ -64,11 +60,10 @@
     }
 
     function setFocus(key) {
-        var item = focusData[key] || focusData.copilot;
+        var item = focusData[key] || focusData.agents;
         var focusTitle = document.getElementById("focusTitle");
         var focusCopy = document.getElementById("focusCopy");
         var focusTags = document.getElementById("focusTags");
-        var focusMeter = document.getElementById("focusMeter");
         var modeStatus = document.getElementById("modeStatus");
         var modeNarrative = document.getElementById("modeNarrative");
         var modeSignal = document.getElementById("modeSignal");
@@ -85,9 +80,6 @@
             focusTags.innerHTML = item.tags.map(function (tag) {
                 return "<li>" + tag + "</li>";
             }).join("");
-        }
-        if (focusMeter) {
-            focusMeter.style.width = item.meter + "%";
         }
         if (modeStatus) {
             modeStatus.textContent = item.status;
@@ -229,7 +221,7 @@
                 setFocus(button.getAttribute("data-focus"));
             });
         });
-        setFocus("copilot");
+        setFocus("agents");
     }
 
     function initSignalCanvas() {
